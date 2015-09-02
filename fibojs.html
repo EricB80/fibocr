@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Fibonacci</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+    </head>
+    <body>
+        <div id="result"></div>
+
+        <script type="text/javascript">
+            function fib_seq(start, end) {
+                if (start === 0 || start === 1) {
+                    var seq = [];
+                    var final = '';
+                    var second = 1;
+                    seq.push(start);
+                    seq.push(second);
+                    for (var i = 2; i <= end; i++) {
+                        var idx = seq.length;
+                        var n1 = idx - 1;
+                        var n2 = idx - 2;
+                        var nth = seq[n1] + seq[n2];
+                        seq.push(nth);
+                    }
+                    final = seq.toString();
+                } else {
+                    final = 'the sequence must start with either 1 or 0';
+                }
+                return final;
+            }
+
+            var f = fib_seq(0, 6);
+            console.log(f);
+            document.getElementById('result').innerHTML = f;
+        </script>
+    </body>
+</html>
